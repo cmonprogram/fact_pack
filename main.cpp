@@ -6,6 +6,10 @@ int fact(int i, int limit = 0) {
     if (i == limit) return 1;
     return i * fact(i - 1, limit);
 }
+void Print(int& i) {
+    std::cout << i << std::endl;
+    ++i;
+}
 template <typename... Vars>
 void fact_pack(Vars&... vars) {
     std::vector<int*> vector_vars = {&vars... };
@@ -24,6 +28,7 @@ void fact_pack(Vars&... vars) {
     for (int i = 0; i < vector_vars.size(); ++i) {
         *vector_vars[i] = results[i];
     }
+    //(Print(vars), ...);
 }
 
 int main() {
